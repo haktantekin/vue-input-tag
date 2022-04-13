@@ -1,6 +1,9 @@
 <template>
   <div class="container">
     <app-tags v-model="tags" :value="tags"/>
+    {{tags}}
+    <app-tags v-model="tags2" :value="tags2"/>
+    {{tags2}}
   </div>
 </template>
 <script>
@@ -11,7 +14,8 @@ export default{
   },
   data(){
     return{
-      tags:"deneme,test,haktan"
+      tags:"deneme,test,haktan",
+      tags2:"deneme,test,haktan,klavye"
     }
   }
 }

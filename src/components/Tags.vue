@@ -71,6 +71,11 @@ export default {
         this.tags = this.value.split(",")
       }
     }
+  },
+  watch : {
+    tags(){
+      this.$emit("input", this.tags.join(","))
+    }
   }
 }
 </script>
@@ -82,7 +87,7 @@ export default {
  
 
   input{
-    outline: nnone;
+    outline: none;
     width: 100px;
     height:30px;
   }

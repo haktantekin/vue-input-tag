@@ -1,11 +1,10 @@
 <template>
   <div class="tag-container">
-    <span class="tag" v-for="tag in tags">
+    <span class="tag" v-for="(tag, index) in tags">
       <span class="content">{{tag}}</span>
-      <span class="close">x</span>
+      <span class="close" @click="removeOneTag(index)">x</span>
     </span>
     <input 
-
     type="text" 
     @keydown.enter="addTag"
     @keydown.backspace="removeTag">
@@ -50,6 +49,9 @@ export default{
       {
        this.tags.splice(this.tags.length -1, 1)
       }
+    },
+    removeOneTag(index){
+      this.tags.splice(index, 1)
     }
   }
 }

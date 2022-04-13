@@ -4,7 +4,12 @@
       <span class="content">{{tag}}</span>
       <span class="close">x</span>
     </span>
-    <input type="text" @keydown.enter="addTag">
+    <input 
+
+    type="text" 
+    @keydown.enter="addTag"
+    @keydown.backspace="removeTag">
+
     <div class="error" v-if="error">Bu etiket eklenmiş!</div>
   </div>
 </template>
@@ -18,19 +23,19 @@ export default{
   },
   methods:{
     addTag(event){
-      let text = event.target.value;
+      let text = event.target;
       let matchTag = false
-      if(text.length > 0){
+      if(text.value.length > 0){
 
         this.tags.forEach(tag => {
-          if(tag.toLowerCase() === text.toLowerCase()){
+          if(tag.toLowerCase() === text.value.toLowerCase()){
             matchTag = true
           }
         })
 
         if(!matchTag){
-          this.tags.push(text);
-          text = '';
+          this.tags.push(text.value);
+          text.value = '';
         }
         else{
           this.error = true;
@@ -38,6 +43,12 @@ export default{
             this.error = false;
           },2000)
         }
+      }
+    },
+    removeTag(e){
+      if(e.target.value.length <= 0)
+      {
+       this.tags.splice(this.tags.length -1, 1)
       }
     }
   }

@@ -4,6 +4,7 @@
     v-for="(tag, index) in tags" 
     :tag="tag"
     :index="index"
+    @removeOneTagEvent="removeOneTag($event)"
     />
     <input 
     type="text" 

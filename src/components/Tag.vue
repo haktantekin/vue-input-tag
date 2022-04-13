@@ -1,7 +1,7 @@
 <template>
     <span class="tag">
         <span class="content">{{tag}}</span>
-        <span class="close" @click="">x</span>
+        <span class="close" @click="$emit('removeOneTagEvent', index)">x</span>
     </span>
 </template>
 <script>

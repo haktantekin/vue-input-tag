@@ -22,7 +22,7 @@ export default {
     },
     data(){
     return{
-        tags:["deneme","test"],
+        tags:[],
         error: false
     }
   },
@@ -58,6 +58,18 @@ export default {
     },
     removeOneTag(index){
       this.tags.splice(index, 1)
+    }
+  },
+  props:{
+    value :{
+      require: false
+    }
+  },
+  created(){
+    if(this.value){
+      if(this.value.length > 0){
+        this.tags = this.value.split(",")
+      }
     }
   }
 }

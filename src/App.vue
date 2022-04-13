@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <app-tags></app-tags>
+    <app-tags v-model="tags" :value="tags"/>
   </div>
 </template>
 <script>
@@ -8,6 +8,11 @@ import Tags from "./components/Tags"
 export default{
   components:{
     appTags: Tags
+  },
+  data(){
+    return{
+      tags:"deneme,test,haktan"
+    }
   }
 }
 </script>
